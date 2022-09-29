@@ -323,35 +323,12 @@ The following resources are created with the Terraform template:
 - Virtual Machine(s)
 - Azure Managed Disk(s)
 
-Go to Terraform directory and Run terraform init to prepare your directory for terraform
-
-```
-cd Terraform
-
-pwd
-
-terraform init
-```
-
-b. validate the files
-
-terraform validate
-
-c. to create an execution plan named "solution.plan"
-
-``` terraform plan -out solution.plan ```
-
-d. Create the Infrastructure ( wait some minutes) :
-
-    terraform apply solution.plan
-
-e. You can get as an output result , the URL of the Load balancer Example:
 
 Outputs:
 
 lb_url = "http://20.163.224.135/"
 
-f. You can check your IaaC is working with curl command or going to that URL in your browser
+You can check your IaaC is working with curl command or going to that URL in your browser
 
 curl <http://20.163.224.135/>
 
@@ -378,6 +355,7 @@ delete the Resource Group used in Packer
 
 ```
 az group delete -n udacity-packerimage-rg
+
 ```
 
 delete the Policy Assignment
