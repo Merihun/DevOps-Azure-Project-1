@@ -72,7 +72,7 @@ To support this need and minimize future work, the project should use Packer to 
 
 ****
 
-#### 1. Clone this repository
+#### Clone this repository
 
 ```text
 git clone git@github.com:Merihun/DevOps-Azure-Project-1.git
@@ -81,14 +81,15 @@ Login to Azure CLI
 ```text
 az login
 ```
-#### 2. Deploy a Policy
+####  Deploy a Policy
 
 - Write a policy definition to deny the creation of resources that do not have tags
 - Apply the policy definition to the subscription with the name "tagging-policy"
-- Use ``` az policy assignment list ```.
+- Use ``` az policy assignment list ``` to verify the assignment.
+
 
 Create tagging policy definition as defined in ```tagging_policy.rules.json``` and assign this to the subscription by running the bash script ``` tagging-policy-create.sh ```
-First make the script executable:
+First make the bash script executable:
 
 ```bash
 chmod +x tagging-policy-create.sh
@@ -100,7 +101,7 @@ Execute the script:
 ./Policy/tagging-policy-create.sh
 ```
 
-Or use the below steps as alternetive to script.
+Or use the below steps as alternetive to using bash script.
 
 a. Create the Policy Definition
 
@@ -111,7 +112,7 @@ az policy definition create --name tagging-policy  --rules Policy\tagging_policy
 
 b. Show the Policy definition
 
-```azure
+```azure cli
 az policy definition show --name tagging-policy
 ```
 
@@ -133,7 +134,7 @@ or
 az policy assignment list
 ```
 
-#### 2. Create service principal for Terraform and Packer [Create service Principal](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret#creating-a-service-principal-using-the-azure-cli)
+Create service principal for Terraform and Packer [Create service Principal](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret#creating-a-service-principal-using-the-azure-cli)
 
 ****
   Steps
@@ -147,7 +148,7 @@ az policy assignment list
   d. Test these values work as expected by first logging in:
       $ az login --service-principal -u CLIENT_ID -p CLIENT_SECRET --tenant TENANT_ID
 
-#### 3. Set ARM environment variables
+#### Set ARM environment variables
 
 Packer
 
@@ -195,7 +196,7 @@ Once you have exported and config the environment variable, use printenv to chec
   printenv
 Note: check with echo $ARM_CLIENT_ID ( for example)
 
-#### 5. Build packer image
+####  Build packer image
 
 Use Packer to create a server image, ensuring that the provided application is included in the template.
 
@@ -216,12 +217,12 @@ Run the following command to build your server image. This may take a while ( ap
 packer build Packer/server.json
 ```
 
-#### 6. Get Image ID
+####  Get Image ID,
 
 Get the ID for the image you just created, to be used in the Terraform template
-
-  az image show packer-image
-
+```
+az image show packer-image
+````
 #### 7. Edit Terraform variables
 
 | File        | Description |
