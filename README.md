@@ -138,16 +138,16 @@ Create service principal for Terraform and Packer [Create service Principal](htt
 
 ****
   Steps
-
-  a. Login to the Azure CLI using:
-      $ az login
-  b. list the Subscriptions associated with the account via:
-      $ az account list --output table
-  c. Create Service Principal using the following command:
-      $ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/SUBSCRIPTION_ID"
-  d. Test these values work as expected by first logging in:
-      $ az login --service-principal -u CLIENT_ID -p CLIENT_SECRET --tenant TENANT_ID
-
+```
+a. Login to the Azure CLI using:
+   $ az login
+b. list the Subscriptions associated with the account via:
+   $ az account list --output table
+c. Create Service Principal using the following command:
+   $ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/SUBSCRIPTION_ID"
+d. Test these values work as expected by first logging in:
+   $ az login --service-principal -u CLIENT_ID -p CLIENT_SECRET --tenant TENANT_ID
+```
 #### Set ARM environment variables
 
 Packer
