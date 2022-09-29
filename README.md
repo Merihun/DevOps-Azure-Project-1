@@ -74,11 +74,13 @@ To support this need and minimize future work, the project should use Packer to 
 
 #### 1. Clone this repository
 
-git clone
-
+```text
+git clone git@github.com:Merihun/DevOps-Azure-Project-1.git
+```
 Login to Azure CLI
-    az login
-
+```text
+az login
+```
 #### 2. Deploy a Policy
 
 - Write a policy definition to deny the creation of resources that do not have tags
